@@ -36,6 +36,7 @@ public class BankAccount {
 
         // validate pin
 
+        System.out.println("WITHDRAWING..");
         if(isSufficientBalance(amount)){
             balance.subtract(amount);
             return true;

@@ -19,7 +19,54 @@
     </bean>
 
 
-    <bean id="myPointcut" class="org.springframework.aop.support.NameMatchMethodPointcut">
+
+
+    <bean id="logBeforeAdvice" class="com.hiwijaya.aop.advice.LogBeforeAdvice"/>
+
+    <bean id="logAfterAdvice" class="com.hiwijaya.aop.advice.LogAfterAdvice"/>
+
+    <bean id="logExceptionAdvice" class="com.hiwijaya.aop.advice.LogExceptionAdvice"/>
+
+    <bean id="monitoringAdvice" class="com.hiwijaya.aop.advice.MonitoringAdvice"/>
+
+
+
+
+    <bean id="logBeforePointcut" class="org.springframework.aop.support.NameMatchMethodPointcutAdvisor">
+        <property name="advice" ref="logBeforeAdvice" />
+        <property name="mappedNames">
+            <list>
+                <value>deposit</value>
+                <value>withdraw</value>
+                <value>transfer</value>
+            </list>
+        </property>
+    </bean>
+
+    <bean id="logAfterPointcut" class="org.springframework.aop.support.NameMatchMethodPointcutAdvisor">
+        <property name="advice" ref="logAfterAdvice" />
+        <property name="mappedNames">
+            <list>
+                <value>deposit</value>
+                <value>withdraw</value>
+                <value>transfer</value>
+            </list>
+        </property>
+    </bean>
+
+    <bean id="logExceptionPointcut" class="org.springframework.aop.support.NameMatchMethodPointcutAdvisor">
+        <property name="advice" ref="logExceptionAdvice" />
+        <property name="mappedNames">
+            <list>
+                <value>deposit</value>
+                <value>withdraw</value>
+                <value>transfer</value>
+            </list>
+        </property>
+    </bean>
+
+    <bean id="monitoringPointcut" class="org.springframework.aop.support.NameMatchMethodPointcutAdvisor">
+        <property name="advice" ref="monitoringAdvice" />
         <property name="mappedNames">
             <list>
                 <value>deposit</value>
@@ -34,7 +81,10 @@
         <property name="target" ref="account1"/>
         <property name="interceptorNames">
             <list>
-                <value>myPointcut</value>
+                <value>logBeforePointcut</value>
+                <value>logAfterPointcut</value>
+                <value>logExceptionPointcut</value>
+                <value>monitoringPointcut</value>
             </list>
         </property>
     </bean>
