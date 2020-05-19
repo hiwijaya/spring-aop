@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        https://www.springframework.org/schema/context/spring-context.xsd">
+
+
+    <bean id="account1" class="com.hiwijaya.aop.BankAccount">
+        <constructor-arg name="owner" value="Happy Indra Wijaya"/>
+        <constructor-arg name="accountNumber" value="1234567890"/>
+    </bean>
+
+    <bean id="account2" class="com.hiwijaya.aop.BankAccount">
+        <constructor-arg name="owner" value="Liam Abraham Wijaya"/>
+        <constructor-arg name="accountNumber" value="0987654321"/>
+    </bean>
+
+
+    <bean id="myPointcut" class="org.springframework.aop.support.NameMatchMethodPointcut">
+        <property name="mappedNames">
+            <list>
+                <value>deposit</value>
+                <value>withdraw</value>
+                <value>transfer</value>
+            </list>
+        </property>
+    </bean>
+
+    <bean id="bankAccountProxy"
+          class="org.springframework.aop.framework.ProxyFactoryBean">
+        <property name="target" ref="account1"/>
+        <property name="interceptorNames">
+            <list>
+                <value>myPointcut</value>
+            </list>
+        </property>
+    </bean>
+
+</beans>
