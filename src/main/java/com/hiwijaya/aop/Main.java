@@ -19,6 +19,4 @@ public class Main {
 
     }
 
-    // ref: https://www.codejava.net/frameworks/spring/understanding-spring-aop
-
 }
