@@ -11,7 +11,7 @@ public class SecurityAdvice implements MethodInterceptor {
     @Override
     public Object invoke(MethodInvocation targetMethod) throws Throwable {
 
-        String inputPin = targetMethod.getArguments()[1].toString();
+        String inputPin = targetMethod.getArguments()[0].toString();
         if(inputPin.equals("000000")){
             System.out.println("Pin matched.");
             return targetMethod.proceed();

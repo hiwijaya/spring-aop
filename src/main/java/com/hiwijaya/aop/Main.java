@@ -14,8 +14,24 @@ public class Main {
 
         ApplicationContext context = new ClassPathXmlApplicationContext("config.xml");
 
-        BankAccount account1 = context.getBean("bankAccountProxy", BankAccount.class);
-        account1.withdraw(new BigDecimal(100000), "000001");
+        try {
+
+            BankAccount account1 = context.getBean("bankAccountProxy", BankAccount.class);
+            BankAccount account2 = context.getBean("account2", BankAccount.class);
+
+            account1.deposit(new BigDecimal(1000000));
+            account1.statement();
+            account1.withdraw("000000", new BigDecimal(500000));
+            account1.statement();
+            account1.transfer("000000", account2, new BigDecimal(400000));
+            account1.statement();
+            account1.withdraw("000000", new BigDecimal(200000));    // raise InsufficientBalanceException
+            account1.statement();
+
+        } catch (InsufficientBalanceException e) {
+            System.out.println("Catching the exception");
+            System.err.println(e.getMessage());
+        }
 
     }
 

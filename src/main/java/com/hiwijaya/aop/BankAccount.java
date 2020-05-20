@@ -25,38 +25,42 @@ public class BankAccount {
     }
 
     public void statement(){
-        System.out.println("Balance in account number" + accountNumber + " is " + balance.toPlainString());
+        System.out.println("Balance in account number '" + accountNumber + "' is " + balance.toPlainString());
     }
 
     public BigDecimal deposit(BigDecimal amount){
         System.out.println("Deposit");
-        return balance.add(amount);
+        balance = balance.add(amount);
+        return balance;
     }
 
-    public boolean withdraw(BigDecimal amount, String pin){
+    public boolean withdraw(String pin, BigDecimal amount) throws InsufficientBalanceException {
 
         // validate pin
 
         System.out.println("Withdrawing");
         if(isSufficientBalance(amount)){
-            balance.subtract(amount);
+            balance = balance.subtract(amount);
             return true;
         }
 
-        return false;    // insufficient balance
+        throw new InsufficientBalanceException("Infufficient balance");
+
     }
 
-    public boolean transfer(BankAccount recipient, BigDecimal amount, String pin){
+    public boolean transfer(String pin, BankAccount recipient, BigDecimal amount) throws InsufficientBalanceException {
 
         // validate pin
 
         System.out.println("Transferring");
         if(isSufficientBalance(amount)){
-            this.balance.subtract(amount);
-            recipient.balance.add(amount);
+            this.balance = this.balance.subtract(amount);
+            recipient.balance = recipient.balance.add(amount);
             return true;
         }
-        return false;
+
+        throw new InsufficientBalanceException("Insufficient balance");
+
     }
 
 

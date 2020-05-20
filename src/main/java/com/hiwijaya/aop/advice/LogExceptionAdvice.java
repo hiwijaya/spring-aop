@@ -13,8 +13,8 @@ public class LogExceptionAdvice implements ThrowsAdvice {   // THROWS ADVICE
         String className = target.getClass().getName();
         String methodName = method.getName();
 
-        System.out.println("Throwing exception from method "+methodName+" of class "+className);
-        System.out.println("Exception message is "+ex.getMessage());
+        System.out.println("[LOG-EXCEPTION] Throwing exception from method "+methodName+" of class "+className);
+        System.out.println("[LOG-EXCEPTION] Exception message is "+ex.getMessage());
     }
 
 }

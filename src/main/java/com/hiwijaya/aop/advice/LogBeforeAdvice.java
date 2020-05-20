@@ -11,6 +11,8 @@ public class LogBeforeAdvice implements MethodBeforeAdvice {    // BEFORE ADVICE
     @Override
     public void before(Method method, Object[] args, Object target) throws Throwable {
 
+        System.out.println("-------------------------------------------------------------");
+
         String className = target.getClass().getName();
         String methodName = method.getName();
         System.out.println("[LOG BEFORE] Executing method " + methodName + "() " +
