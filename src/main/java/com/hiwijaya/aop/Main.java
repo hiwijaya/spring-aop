@@ -15,7 +15,7 @@ public class Main {
         ApplicationContext context = new ClassPathXmlApplicationContext("config.xml");
 
         BankAccount account1 = context.getBean("bankAccountProxy", BankAccount.class);
-        account1.withdraw(new BigDecimal(100000));
+        account1.withdraw(new BigDecimal(100000), "000001");
 
     }
 

@@ -13,8 +13,10 @@ public class LogAfterAdvice implements AfterReturningAdvice {     // AFTER ADVIC
 
         String className = target.getClass().getName();
         String methodName = method.getName();
-        System.out.println("[log-after-advice]Returning from method " + methodName +
-                " of class " + className + " with " + returnValue.toString());
+        System.out.println("[LOG AFTER] Returning from method " + methodName +
+                "() of class " + className + " with " + returnValue.toString());
+
+        System.out.println("-------------------------------------------------------------");
 
     }
 

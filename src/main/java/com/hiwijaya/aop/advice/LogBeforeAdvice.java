@@ -13,11 +13,10 @@ public class LogBeforeAdvice implements MethodBeforeAdvice {    // BEFORE ADVICE
 
         String className = target.getClass().getName();
         String methodName = method.getName();
-
-        System.out.println("[log-before-advice] Executing method "+methodName+" " +
-                "of class "+className+" with following parameters");
+        System.out.println("[LOG BEFORE] Executing method " + methodName + "() " +
+                "of class " + className + " with following parameters");
         for(Object parameter: args){
-            System.out.println(parameter.getClass().getName() + " = "+parameter.toString());
+            System.out.println("[LOG BEFORE] " + parameter.getClass().getName() + " = "+parameter.toString());
         }
 
     }

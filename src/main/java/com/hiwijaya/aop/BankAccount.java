@@ -29,25 +29,28 @@ public class BankAccount {
     }
 
     public BigDecimal deposit(BigDecimal amount){
+        System.out.println("Deposit");
         return balance.add(amount);
     }
 
-    public boolean withdraw(BigDecimal amount){
+    public boolean withdraw(BigDecimal amount, String pin){
 
         // validate pin
 
-        System.out.println("WITHDRAWING..");
+        System.out.println("Withdrawing");
         if(isSufficientBalance(amount)){
             balance.subtract(amount);
             return true;
         }
+
         return false;    // insufficient balance
     }
 
-    public boolean transfer(BankAccount recipient, BigDecimal amount){
+    public boolean transfer(BankAccount recipient, BigDecimal amount, String pin){
 
         // validate pin
 
+        System.out.println("Transferring");
         if(isSufficientBalance(amount)){
             this.balance.subtract(amount);
             recipient.balance.add(amount);

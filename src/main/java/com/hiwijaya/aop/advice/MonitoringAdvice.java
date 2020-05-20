@@ -9,9 +9,10 @@ import org.aopalliance.intercept.MethodInvocation;
 public class MonitoringAdvice implements MethodInterceptor {    // AROUND ADVICE
 
     @Override
-    public Object invoke(MethodInvocation methodInvocation) throws Throwable {
+    public Object invoke(MethodInvocation targetMethod) throws Throwable {
         long startTime = System.currentTimeMillis();
-        Object result = methodInvocation.proceed();
+        System.out.println("Counting time..");
+        Object result = targetMethod.proceed();
         long endTime = System.currentTimeMillis();
         System.out.println("Total time taken in ms : "+(endTime-startTime));
         return result;
