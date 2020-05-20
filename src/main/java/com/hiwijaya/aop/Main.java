@@ -4,14 +4,11 @@ import com.hiwijaya.aop.config.AutomatedConfig;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
-import org.springframework.stereotype.Component;
-
 import java.math.BigDecimal;
 
 /**
  * @author Happy Indra Wijaya
  */
-@Component
 public class Main {
 
 
@@ -44,8 +41,8 @@ public class Main {
 
         try {
 
-            BankAccount account1 = context.getBean(BankAccount.class);
-            BankAccount account2 = context.getBean(BankAccount.class);
+            BankAccount account1 = context.getBean("account1", BankAccount.class);
+            BankAccount account2 = context.getBean("account2", BankAccount.class);
 
             account1.deposit(new BigDecimal(1000000));
             account1.statement();

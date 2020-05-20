@@ -1,13 +1,10 @@
 package com.hiwijaya.aop;
 
-import org.springframework.stereotype.Component;
-
 import java.math.BigDecimal;
 
 /**
  * @author Happy Indra Wijaya
  */
-@Component
 public class BankAccount {
 
     private String owner;

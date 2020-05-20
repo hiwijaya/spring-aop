@@ -23,5 +23,6 @@ public class Logging {
         System.out.println("[ASPECTJ: LOG-BEFORE] " + point.getSignature().getName());
     }
 
+    // TODO: more advice
 
 }
