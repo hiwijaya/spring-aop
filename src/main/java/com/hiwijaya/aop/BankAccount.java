@@ -1,10 +1,13 @@
 package com.hiwijaya.aop;
 
+import org.springframework.stereotype.Component;
+
 import java.math.BigDecimal;
 
 /**
  * @author Happy Indra Wijaya
  */
+@Component
 public class BankAccount {
 
     private String owner;
@@ -13,6 +16,9 @@ public class BankAccount {
 
     private String pin = "000000";     // default pin is 000000. Change it immediately!
 
+    public BankAccount(){
+        this.balance = BigDecimal.ZERO;
+    }
 
     public BankAccount(String owner, String accountNumber){
         this.owner = owner;
