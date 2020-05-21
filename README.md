@@ -47,3 +47,5 @@ Weaving can be done at compile time, class loading time or runtime. Spring AOP s
 
 Ref:
 - https://www.codejava.net/frameworks/spring/understanding-spring-aop
+- https://www.javatpoint.com/spring-aop-aspectj-annotation-example
+- https://docs.spring.io/spring/docs/5.3.0-SNAPSHOT/spring-framework-reference/

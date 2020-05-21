@@ -1,6 +1,6 @@
 package com.hiwijaya.aop;
 
-import com.hiwijaya.aop.config.AutomatedConfig;
+import com.hiwijaya.aop.config.AnnotationConfig;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
@@ -37,7 +37,7 @@ public class Main {
 
     public static void runAnnotationConfig(){
 
-        ApplicationContext context = new AnnotationConfigApplicationContext(AutomatedConfig.class);
+        ApplicationContext context = new AnnotationConfigApplicationContext(AnnotationConfig.class);
 
         try {
 
@@ -62,6 +62,7 @@ public class Main {
 
     public static void main(String[] args) {
 
+//        runXmlConfig();
         runAnnotationConfig();
 
     }

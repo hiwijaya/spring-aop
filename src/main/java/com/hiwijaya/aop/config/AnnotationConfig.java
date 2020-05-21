@@ -12,18 +12,16 @@ import org.springframework.context.annotation.EnableAspectJAutoProxy;
 @Configuration
 @EnableAspectJAutoProxy     // <aop:aspectj-autoproxy/>
 @ComponentScan("com.hiwijaya.aop.aspect")
-public class AutomatedConfig {
+public class AnnotationConfig {
 
     @Bean("account1")
     public BankAccount getAccount1(){
-        BankAccount account1 = new BankAccount("Happy Indra Wijaya", "1234567890");
-        return account1;
+        return new BankAccount("Happy Indra Wijaya", "1234567890");
     }
 
     @Bean("account2")
     public BankAccount getAccount2(){
-        BankAccount account2 = new BankAccount("Liam Abraham Wijaya", "0987654321");
-        return account2;
+        return new BankAccount("Liam Abraham Wijaya", "0987654321");
     }
 
 }

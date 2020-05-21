@@ -58,7 +58,7 @@ public class BankAccount {
         System.out.println("Transferring");
         if(isSufficientBalance(amount)){
             this.balance = this.balance.subtract(amount);
-            recipient.balance = recipient.balance.add(amount);
+            recipient.deposit(amount);
             return true;
         }
 
@@ -72,4 +72,7 @@ public class BankAccount {
     }
 
 
+    public String getOwner() {
+        return owner;
+    }
 }
