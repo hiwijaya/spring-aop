@@ -2,6 +2,7 @@ package com.hiwijaya.aop.aspect;
 
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.*;
+import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
 /**
@@ -9,6 +10,7 @@ import org.springframework.stereotype.Component;
  */
 @Aspect
 @Component
+@Order(1)   // or implements Ordered
 public class LoggingAspect {
 
     // pointcut designator (PCD)
@@ -27,7 +29,7 @@ public class LoggingAspect {
                 "of class " + className + " with following parameters");
 
         Object[] args = point.getArgs();
-        for(Object parameter: args){
+        for(Object parameter : args){
             System.out.println("[ASPECTJ: LOG BEFORE] " + parameter.getClass().getName() + " = "+parameter.toString());
         }
 
