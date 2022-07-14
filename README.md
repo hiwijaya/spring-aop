@@ -45,6 +45,13 @@ Weaving can be done at compile time, class loading time or runtime. Spring AOP s
 ![aspect oriented programming](docs/aop.png)
 
 
+More details and implemented with Spring:
+- [Konsep Aspect Oriented Programming (AOP)](https://hiwijaya.com/blog/konsep-aop)
+- [Implementasi Konsep AOP Dengan Spring](https://hiwijaya.com/blog/implementasi-aop-dengan-spring)
+- [https://hiwijaya.com/blog/implementasi-aop-dengan-spring](https://hiwijaya.com/blog/around-advice-menggunakan-spring-aopalliance)
+- [https://hiwijaya.com/blog/around-advice-menggunakan-spring-aopalliance](https://hiwijaya.com/blog/spring-aop-aspectj)
+
+
 Ref:
 - https://www.codejava.net/frameworks/spring/understanding-spring-aop
 - https://www.javatpoint.com/spring-aop-aspectj-annotation-example
